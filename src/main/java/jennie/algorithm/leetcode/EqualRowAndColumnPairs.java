@@ -9,17 +9,14 @@ class EqualRowAndColumnPairs {
         int result = 0;
 
         for (int i = 0; i < grid.length; i++) {
-            String tmp = "";
+            String strRow = "";
+            String strCol = "";
             for (int j = 0; j < grid.length; j++) {
-                tmp = tmp + " " + grid[i][j];
+                strRow = strRow + " " + grid[i][j];
+                strCol = strCol + " " + grid[j][i];
             }
-            row.put(tmp, row.getOrDefault(tmp, 0) + 1);
-
-            tmp = "";
-            for (int j = 0; j < grid.length; j++) {
-                tmp = tmp + " " + grid[j][i];
-            }
-            col.put(tmp, col.getOrDefault(tmp, 0) + 1);
+            row.put(strRow, row.getOrDefault(strRow, 0) + 1);
+            col.put(strCol, col.getOrDefault(strCol, 0) + 1);
         }
 
         for (String key : row.keySet() ){
